@@ -4,14 +4,13 @@
 </h2>
 
 <div class="nav">
-	<?php echo HTML::anchor('#/informations', 'Informations') ?>
-	<?php echo HTML::anchor('#/chocobos', 'Ecurie') ?>
-	<?php echo HTML::anchor('#/achievements', 'Succès') ?>
-	<?php 
-		if ($user->id == $u->id)
-		{
+	<?php
+		echo HTML::anchor('#/informations', 'Informations');
+		echo HTML::anchor('#/chocobos', 'Ecurie');
+		echo HTML::anchor('#/achievements', 'Succès');
+		if ($user->id == $u->id) {
 			echo HTML::anchor('users/'.$user->id.'/edit', 'Préférences'); 
-		}
+	    }
 	?>
 </div>
 
@@ -75,17 +74,13 @@
 		<td></td>
 	</tr>
 	<tr>
-		<td>Chocobos</td>
+		<td>Nombre de chocobos</td>
 		<td>
 		<?php
-			echo count($user->chocobos) . ' /' . $user->get_boxes();
+			echo count($user->chocobos->find_all()) . ' /' . $user->get_boxes();
 		?>
 		</td>
-		<td>
-			<?php
-			echo HTML::anchor('#/chocobos', 'Voir', array('class' => 'button green'));
-			?>
-		</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>Succès</td>
@@ -95,11 +90,7 @@
 			echo $user->successes->count_all() . ' /' . $nbr_titles;
 		?>
 		</td>
-		<td>
-			<?php
-			echo HTML::anchor('#/achievements', 'Voir', array('class' => 'button green'));
-			?>
-		</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>Inscrit</td>

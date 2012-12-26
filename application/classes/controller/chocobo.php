@@ -1,12 +1,11 @@
 <?php
-
 class Controller_Chocobo extends Controller_Template {
 
 	/**
 	 * Vue de tous les chocobos
 	 */
 	public function action_index()
-	{
+    {
 		$this->authorize('logged_in');
 
 		$c = Session::instance()->get('chocobo');
@@ -115,7 +114,7 @@ class Controller_Chocobo extends Controller_Template {
 			$values = $_POST;
 		}
 
-		if ($_POST and $post->check()) 
+		if ($_POST AND $post->check()) 
 		{
 			$chocobo->update_name($post);
 		
